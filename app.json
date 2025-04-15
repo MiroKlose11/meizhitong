@@ -13,7 +13,8 @@
     "pages/modules/courses/index",
     "pages/modules/certificate/index",
     "pages/modules/students/index",
-    "pages/modules/exchange/index"
+    "pages/modules/exchange/index",
+    "pages/article/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

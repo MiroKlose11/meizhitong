@@ -1,0 +1,64 @@
+<!--pages/article/detail.wxml-->
+<view class="article-container">
+  <!-- 顶部状态栏占位 -->
+  <view class="status-bar" style="height: {{statusBarHeight}}px;"></view>
+  
+  <!-- 导航栏 -->
+  <view class="nav-bar">
+    <view class="nav-back" bindtap="navigateBack">
+      <view class="back-icon"></view>
+    </view>
+  </view>
+  
+  <!-- 文章内容区域 -->
+  <scroll-view scroll-y class="article-scroll">
+    <view class="article-content">
+      <!-- 文章标题 -->
+      <view class="article-title">{{article.title}}</view>
+      
+      <!-- 作者和日期 -->
+      <view class="article-meta">
+        <text class="article-author">{{article.author}}</text>
+        <text class="article-date">{{article.date}}</text>
+      </view>
+      
+      <!-- 主图 -->
+      <view class="article-main-image">
+        <image src="{{article.coverImage}}" mode="widthFix"></image>
+      </view>
+      
+      <!-- 正文内容 -->
+      <view class="article-body">
+        <rich-text nodes="{{article.content}}"></rich-text>
+      </view>
+      
+      <!-- 底部广告区域 -->
+      <view class="article-promotion">
+        <image class="qrcode" src="{{qrCodeImage}}" mode="aspectFit"></image>
+        <view class="promotion-text">
+          <view class="promotion-title">扫码/应用市场搜索下载</view>
+          <view class="promotion-app">美职通 A P P</view>
+          <view class="promotion-url">https://www.huayaoyimei.com/download.html</view>
+        </view>
+      </view> 
+      
+      <!-- 免责声明 -->
+      <view class="disclaimer">
+        <text>以上内容仅供参考，非本平台立场。不构成医疗建议，不对任何商业用途、所有操作须在合法合规医疗机构进行。欢迎点赞、转发、关注，促进安全医美实践。下期见！</text>
+      </view>
+      
+      <!-- 相关推荐文章 -->
+      <view class="related-articles">
+        <view class="related-title">相关推荐</view>
+        
+        <view class="article-item" wx:for="{{relatedArticles}}" wx:key="id" bindtap="navigateToArticle" data-id="{{item.id}}">
+          <view class="article-item-content">
+            <view class="article-item-title">{{item.title}}</view>
+            <view class="article-item-date">{{item.date}}</view>
+          </view>
+          <image class="article-item-image" src="{{item.image}}" mode="aspectFill"></image>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view> 

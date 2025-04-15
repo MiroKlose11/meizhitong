@@ -13,11 +13,18 @@
   
   <!-- 页面内容 -->
   <view class="module-content">
-    <view class="module-placeholder">
-      <image class="module-icon" src="{{moduleIcon}}" mode="aspectFit"></image>
-      <view class="module-title">{{moduleName}}</view>
-      <view class="module-desc">{{moduleId ? '模块ID: ' + moduleId : ''}}</view>
-      <view class="module-message">医美资讯页面内容正在建设中...</view>
+    <!-- 文章列表 -->
+    <view class="article-list">
+      <view class="article-item" wx:for="{{articles}}" wx:key="id" bindtap="navigateToArticle" data-id="{{item.id}}">
+        <view class="article-info">
+          <view class="article-title">{{item.title}}</view>
+          <view class="article-desc">{{item.desc}}</view>
+          <view class="article-meta">
+            <text class="article-date">{{item.date}}</text>
+          </view>
+        </view>
+        <image class="article-image" src="{{item.image}}" mode="aspectFill"></image>
+      </view>
     </view>
   </view>
 </view> 
