@@ -1,0 +1,23 @@
+<!--modules/school/index.wxml-->
+<view class="module-container">
+  <!-- 顶部状态栏占位 -->
+  <view class="status-bar" style="height: {{statusBarHeight}}px;"></view>
+  
+  <!-- 导航栏 -->
+  <view class="nav-bar">
+    <view class="nav-back" bindtap="navigateBack">
+      <view class="back-icon"></view>
+    </view>
+    <view class="nav-title">{{moduleName}}</view>
+  </view>
+  
+  <!-- 页面内容 -->
+  <view class="module-content">
+    <view class="module-placeholder">
+      <image class="module-icon" src="{{moduleIcon}}" mode="aspectFit"></image>
+      <view class="module-title">{{moduleName}}</view>
+      <view class="module-desc">{{moduleId ? '模块ID: ' + moduleId : ''}}</view>
+      <view class="module-message">合作院校页面内容正在建设中...</view>
+    </view>
+  </view>
+</view> 

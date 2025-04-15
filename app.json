@@ -3,7 +3,17 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/study/study",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/modules/news/index",
+    "pages/modules/school/index",
+    "pages/modules/graduates/index",
+    "pages/modules/institution/index",
+    "pages/modules/teachers/index",
+    "pages/modules/jobs/index",
+    "pages/modules/courses/index",
+    "pages/modules/certificate/index",
+    "pages/modules/students/index",
+    "pages/modules/exchange/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

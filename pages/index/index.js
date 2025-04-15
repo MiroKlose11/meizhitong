@@ -53,52 +53,62 @@ Page({
       { 
         id: 1, 
         name: '医美资讯', 
-        icon: 'https://img.icons8.com/color/96/news.png'
+        icon: 'https://img.icons8.com/color/96/news.png',
+        path: '/pages/modules/news/index'
       },
       { 
         id: 2, 
         name: '合作院校', 
-        icon: 'https://img.icons8.com/color/96/university.png'
+        icon: 'https://img.icons8.com/color/96/university.png',
+        path: '/pages/modules/school/index'
       },
       { 
         id: 3, 
         name: '毕业生', 
-        icon: 'https://img.icons8.com/color/96/student-male.png'
+        icon: 'https://img.icons8.com/color/96/student-male.png',
+        path: '/pages/modules/graduates/index'
       },
       { 
         id: 4, 
         name: '医美机构', 
-        icon: 'https://img.icons8.com/color/96/hospital-3.png'
+        icon: 'https://img.icons8.com/color/96/hospital-3.png',
+        path: '/pages/modules/institution/index'
       },
       { 
         id: 5, 
         name: '师资队伍', 
-        icon: 'https://img.icons8.com/color/96/teacher.png'
+        icon: 'https://img.icons8.com/color/96/teacher.png',
+        path: '/pages/modules/teachers/index'
       },
       { 
         id: 6, 
         name: '医美岗位', 
-        icon: 'https://img.icons8.com/color/96/briefcase.png'
+        icon: 'https://img.icons8.com/color/96/briefcase.png',
+        path: '/pages/modules/jobs/index'
       },
       { 
         id: 7, 
         name: '课程开设', 
-        icon: 'https://img.icons8.com/color/96/open-book.png'
+        icon: 'https://img.icons8.com/color/96/open-book.png',
+        path: '/pages/modules/courses/index'
       },
       { 
         id: 8, 
         name: '认证证书', 
-        icon: 'https://img.icons8.com/color/96/certificate.png'
+        icon: 'https://img.icons8.com/color/96/certificate.png',
+        path: '/pages/modules/certificate/index'
       },
       { 
         id: 9, 
         name: '优秀学员', 
-        icon: 'https://img.icons8.com/color/96/student-center.png'
+        icon: 'https://img.icons8.com/color/96/student-center.png',
+        path: '/pages/modules/students/index'
       },
       { 
         id: 10, 
         name: '人才交流', 
-        icon: 'https://img.icons8.com/color/96/meeting.png'
+        icon: 'https://img.icons8.com/color/96/meeting.png',
+        path: '/pages/modules/exchange/index'
       }
     ],
     
@@ -196,10 +206,19 @@ Page({
     const module = this.data.modules.find(item => item.id === moduleId);
     console.log('点击了模块', module.name);
     
-    // 暂时不跳转，仅记录点击
-    wx.showToast({
-      title: `${module.name}功能开发中`,
-      icon: 'none'
+    // 跳转到对应的页面
+    wx.navigateTo({
+      url: module.path + '?id=' + module.id + '&name=' + module.name,
+      success: () => {
+        console.log('跳转成功');
+      },
+      fail: (error) => {
+        console.error('跳转失败', error);
+        wx.showToast({
+          title: '页面跳转失败',
+          icon: 'none'
+        });
+      }
     });
   },
   // 精选内容点击事件
