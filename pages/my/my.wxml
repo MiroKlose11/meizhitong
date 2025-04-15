@@ -1,0 +1,37 @@
+<!--my.wxml-->
+<view class="container">
+  <!-- 用户信息区域 -->
+  <view class="user-info-block">
+    <view class="user-header">
+      <image class="user-avatar" src="{{userInfo.avatar}}"></image>
+      <view class="user-detail">
+        <view class="user-name">{{userInfo.name}}</view>
+        <view class="user-level">{{userInfo.level}}</view>
+      </view>
+      <button class="edit-btn">编辑资料</button>
+    </view>
+    <view class="user-points">
+      <view class="points-label">积分</view>
+      <view class="points-value">{{userInfo.points}}</view>
+    </view>
+  </view>
+
+  <!-- 菜单区域 -->
+  <view class="menu-block">
+    <view class="menu-item" wx:for="{{menuItems}}" wx:key="id" bindtap="navigateToMenu" data-id="{{item.id}}">
+      <view class="menu-icon-wrap">
+        <!-- 使用图标占位符 -->
+        <view class="icon-placeholder">{{item.name[0]}}</view>
+        <view class="badge" wx:if="{{item.badge > 0}}">{{item.badge}}</view>
+      </view>
+      <view class="menu-name">{{item.name}}</view>
+      <view class="menu-arrow">></view>
+    </view>
+  </view>
+
+  <!-- 底部区域 -->
+  <view class="footer">
+    <view class="version">汇成医美教育 v1.0.0</view>
+    <view class="copyright">© 2025 汇成医美教育 版权所有</view>
+  </view>
+</view> 

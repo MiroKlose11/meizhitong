@@ -1,0 +1,25 @@
+<!--study.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="title">我的学习课程</view>
+  </view>
+  
+  <view class="course-list">
+    <view class="course-item" wx:for="{{courses}}" wx:key="id" bindtap="navToCourseDetail" data-id="{{item.id}}">
+      <image class="course-image" src="{{item.coverUrl}}" mode="aspectFill"></image>
+      <view class="course-info">
+        <view class="course-title">{{item.title}}</view>
+        <view class="course-teacher">主讲：{{item.teacher}}</view>
+        <view class="progress-bar-container">
+          <view class="progress-bar" style="width: {{item.progress}}%;"></view>
+        </view>
+        <view class="progress-text">已学习{{item.progress}}%</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-block" wx:if="{{courses.length === 0}}">
+    <image class="empty-icon" src="../../images/empty.png"></image>
+    <view class="empty-text">暂无学习记录</view>
+  </view>
+</view> 

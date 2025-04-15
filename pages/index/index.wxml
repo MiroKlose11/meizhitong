@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 顶部状态栏占位 -->
+  <view class="status-bar" style="height: {{statusBarHeight}}px;"></view>
+  
+  <!-- 顶部背景区域 -->
+  <view class="header-bg">
+    <!-- 搜索栏 -->
+    <view class="search-container">
+      <view class="search-bar">
+        <icon type="search" size="16" color="#999" class="search-icon"></icon>
+        <input type="text" placeholder="搜美容院/项目" confirm-type="search" class="search-input" />
+      </view>
+    </view>
+
+    <!-- 轮播图部分 - 只保留图片 -->
+    <swiper class="banner" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" duration="500" circular="{{true}}" indicator-color="rgba(255, 255, 255, 0.3)" indicator-active-color="#fff">
+      <swiper-item wx:for="{{banners}}" wx:key="id">
+        <view class="banner-content">
+          <image src="{{item.imageUrl}}" class="banner-image" mode="aspectFill"></image>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  
+  <!-- 十个功能版块 -->
+  <view class="module-grid">
+    <view class="module-item" wx:for="{{modules}}" wx:key="id" bindtap="navigateToModule" data-id="{{item.id}}">
+      <view class="module-icon-wrap">
+        <image src="{{item.icon}}" class="module-icon"></image>
+      </view>
+      <view class="module-name">{{item.name}}</view>
+    </view>
+  </view>
+
+  <!-- 精选内容标题 -->
+  <view class="section-title">精选推荐</view>
+  
+  <!-- 精选内容卡片 -->
+  <view class="article-list">
+    <view class="article-item" wx:for="{{articles}}" wx:key="id" bindtap="navigateToDetail" data-id="{{item.id}}">
+      <view class="article-content">
+        <view class="article-title">{{item.title}}</view>
+        <view class="article-desc">{{item.description}}</view>
+        <view class="article-meta">
+          <text class="view-count">{{item.viewCount}}人观过</text>
+        </view>
+      </view>
+      <image class="article-image" src="{{item.imageUrl}}" mode="aspectFill"></image>
+    </view>
+  </view>
+  
+  <!-- 立即报名按钮 -->
+  <view class="signup-btn-container">
+    <button class="signup-btn">立即咨询</button>
+  </view>
+</view>
